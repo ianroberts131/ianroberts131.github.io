@@ -78,12 +78,15 @@
   display: block;
   float: left;
   width: 100%;
+  margin-top: 0;
+  padding-top: 0;
   .project {
     display: block;
     float: left;
     clear:both;
     width:100%;
     margin:2em auto;
+    margin-bottom: 0;
     .project-thumb {
       width: 100%;
       float: left;
