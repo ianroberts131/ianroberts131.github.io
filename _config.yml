@@ -1,6 +1,6 @@
 # SITE CONFIGURATION
 baseurl: "/blog/" # the subpath of your site, e.g. /blog/ (optional)
-url: "http://ianroberts131.github.io" # the base hostname & protocol for your site
+url: "https://ianroberts131.github.io" # the base hostname & protocol for your site
 
 # THEME-SPECIFIC CONFIGURATION
 theme_settings:
