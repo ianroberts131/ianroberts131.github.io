@@ -22,7 +22,7 @@ theme_settings:
   behance:
   bitbucket:
   dribbble:
-  facebook: "ian.roberts.39904"
+  facebook:
   flickr:
   github: "ianroberts131"
   google_plus:
@@ -34,7 +34,7 @@ theme_settings:
   stack_exchange:  # Full URL
   steam:
   tumblr:
-  twitter: "ianroberts131"
+  twitter:
   wordpress:
   youtube:
 
