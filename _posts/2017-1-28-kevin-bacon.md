@@ -6,6 +6,7 @@ title: Six Degrees of Kevin Bacon
 ## The Problem
 
 Six Degrees of Kevin Bacon is a game where you have to link a given actor with Kevin Bacon in 6 movies or less. If you think of each actor as a 'node', and the edges connecting nodes as a movie two actors were both in, then the game turns into a graph problem. In this post, I will walk through (using Ruby) how to:
+
 1. Create a tree of actor nodes, connected by movies the actors were both in, represented by an adjacency matrix
 2. Use recursive breadth first search to find the shortest path between the desired actor and Kevin Bacon.
 
@@ -20,6 +21,7 @@ Alright, enough rah rah speech from me, let's find the Bacon.
 Developing a graph that contains all necessary information is the most crucial part of this exercise. Once you have this, the recrusive breadth first search algorithm is fairly straight forward to implement. I opted to use an adjacency matrix, since this allowed for very clear associations between actors. One downside of an adjacency matrix is that they get very big very quickly (n^2 associations will need to be stored for n actors). For this purpose, it worked just fine though.
 
 First, we need to create a Node class to represent the actors. Each node will need the following pieces of information:
+
 1. Name
 2. Index
 3. Boolean variable to determine if the node has been visited yet during the breadth first search
@@ -58,21 +60,24 @@ end
 ```
 
 The adjacency matrix object is initialized with the following instance variables:
+
 1. `@actors_array` : This will store an array of actors. Their index location here will be how we determine their matrix lookup.
 2. `@matrix` : This will be the adjacency matrix. The matrix will simply be an n x n matrix (n being the number of unique actors we'e inserted), with either a 1 or a 0 in each location. A 1 represents that the two actors have appeared in a movie together, while a 0 represents that they have not.
 3. `@film_hash` : A hash that will store each movie as the key, and then an array of actors in that movie as the value
 
 Before I move on with the rest of the adjacency matrix, following is how I will store the movie data:
 
-```
+```ruby
 footloose = ["Kevin Bacon", "Lori Singer", "John Lithgow", "Dianne West", "Chris Penn", "Sarah Jessica Parker", 
               "John Laughlin", "Elizabeth Gorcey", "Frances Lee McCain", "Jim Youngs", "Douglas Dirkson", "Lynne Marta", 
               "Arthur Rosenburg", "Timothy Scott", "Alan Haufrect"]
 
-interstellar = ["Ellen Burstyn", "Matthew McConaughey", "Mackenzie Foy", "John Lithgow", "Timothee Chalamet", "David Oyelowo",                 "Collette Wolfe", "Francis McCarthy", "Bill Irwin",
+interstellar = ["Ellen Burstyn", "Matthew McConaughey", "Mackenzie Foy", "John Lithgow", "Timothee Chalamet", "David Oyelowo",
+                "Collette Wolfe", "Francis McCarthy", "Bill Irwin",
                 "Anne Hathaway", "Andrew Borba", "Wes Bentley", "William Devane", "Michael Caine", "David Gyasi"]
 
-wolf_of_wallstreet = ["Leonardo DiCaprio", "Jonah Hill", "Margot Robbie", "Matthew McConaughey", "Kyle Chandler", "Rob Reiner",                       "Jon Bernthal", "Jon Favreau", "Jean Dujardin",
+wolf_of_wallstreet = ["Leonardo DiCaprio", "Jonah Hill", "Margot Robbie", "Matthew McConaughey", "Kyle Chandler", "Rob Reiner",
+                      "Jon Bernthal", "Jon Favreau", "Jean Dujardin",
                       "Joanna Lumley", "Cristin Milloti", "Christine Ebersole", "Shea Whigham", "Katarina Cas", "P.J. Byrne"]
 ```
 
@@ -251,6 +256,7 @@ The 25 is just a length longer than the length of the longest name I inserted. T
 Don't know about you, but my inner OCD approves of this matrix. We can see that our 1 link between Footloose and Interstellar is John Lithgow - he is the key link to the Bacon.
 
 Now for the search. Just for fun, I opted to return a string that describes the path to Kevin Bacon. For instance, after entering the 3 movies shown above, the path to Kevin Bacon from Leonardo DiCaprio is Wolf of Wallstreet with Matthew McConaughey, who was in Interstellar with John Lithgow, who was in Footloose with Kevin Bacon. The output of the `#find_kevin_bacon` function is thus as follows:
+
 ```
 Leonardo DiCaprio acted in Wolf of Wallstreet with Matthew McConaughey
 Matthew McConaughey acted in Interstellar with John Lithgow
@@ -397,6 +403,7 @@ puts "#{matrix.find_kevin_bacon("Leonardo DiCaprio")}"
 And the output is:
 
 ```
+We're gonna find Leonardo DiCaprio's Bacon connection...
 Leonardo DiCaprio acted in Wolf of Wallstreet with Matthew McConaughey
 Matthew McConaughey acted in Interstellar with John Lithgow
 John Lithgow acted in Footloose with Kevin Bacon
