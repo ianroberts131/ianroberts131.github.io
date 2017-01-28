@@ -73,12 +73,12 @@ footloose = ["Kevin Bacon", "Lori Singer", "John Lithgow", "Dianne West", "Chris
               "Arthur Rosenburg", "Timothy Scott", "Alan Haufrect"]
 
 interstellar = ["Ellen Burstyn", "Matthew McConaughey", "Mackenzie Foy", "John Lithgow", "Timothee Chalamet", "David Oyelowo",
-                "Collette Wolfe", "Francis McCarthy", "Bill Irwin",
-                "Anne Hathaway", "Andrew Borba", "Wes Bentley", "William Devane", "Michael Caine", "David Gyasi"]
+                "Collette Wolfe", "Francis McCarthy", "Bill Irwin","Anne Hathaway", "Andrew Borba", "Wes Bentley", "William Devane",
+                "Michael Caine", "David Gyasi"]
 
 wolf_of_wallstreet = ["Leonardo DiCaprio", "Jonah Hill", "Margot Robbie", "Matthew McConaughey", "Kyle Chandler", "Rob Reiner",
-                      "Jon Bernthal", "Jon Favreau", "Jean Dujardin",
-                      "Joanna Lumley", "Cristin Milloti", "Christine Ebersole", "Shea Whigham", "Katarina Cas", "P.J. Byrne"]
+                      "Jon Bernthal", "Jon Favreau", "Jean Dujardin", "Joanna Lumley", "Cristin Milloti", "Christine Ebersole", 
+                      "Shea Whigham", "Katarina Cas", "P.J. Byrne"]
 ```
 
 The next step is to insert this data into the adjacency matrix class. In order to do this, I will create a method `#add_film`, as follows:
@@ -253,7 +253,7 @@ The 25 is just a length longer than the length of the longest name I inserted. T
 28: David Gyasi              0  0  1  0  0  0  0  0  0  0  0  0  0  0  0  1  1  1  1  1  1  1  1  1  1  1  1  1  0
 ```
 
-Don't know about you, but my inner OCD approves of this matrix. We can see that our 1 link between Footloose and Interstellar is John Lithgow - he is the key link to the Bacon.
+Don't know about you, but my OCD approves of this matrix. We can see that our 1 link between Footloose and Interstellar is John Lithgow - he is the key link to the Bacon.
 
 Now for the search. Just for fun, I opted to return a string that describes the path to Kevin Bacon. For instance, after entering the 3 movies shown above, the path to Kevin Bacon from Leonardo DiCaprio is Wolf of Wallstreet with Matthew McConaughey, who was in Interstellar with John Lithgow, who was in Footloose with Kevin Bacon. The output of the `#find_kevin_bacon` function is thus as follows:
 
