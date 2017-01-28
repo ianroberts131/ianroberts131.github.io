@@ -73,7 +73,7 @@ footloose = ["Kevin Bacon", "Lori Singer", "John Lithgow", "Dianne West", "Chris
               "Arthur Rosenburg", "Timothy Scott", "Alan Haufrect"]
 
 interstellar = ["Ellen Burstyn", "Matthew McConaughey", "Mackenzie Foy", "John Lithgow", "Timothee Chalamet", "David Oyelowo",
-                "Collette Wolfe", "Francis McCarthy", "Bill Irwin","Anne Hathaway", "Andrew Borba", "Wes Bentley", "William Devane",
+                "Collette Wolfe", "Francis McCarthy", "Bill Irwin", "Anne Hathaway", "Andrew Borba", "Wes Bentley", "William Devane",
                 "Michael Caine", "David Gyasi"]
 
 wolf_of_wallstreet = ["Leonardo DiCaprio", "Jonah Hill", "Margot Robbie", "Matthew McConaughey", "Kyle Chandler", "Rob Reiner",
@@ -179,6 +179,12 @@ end
 ```
 
 There's one problem - we haven't added columns for our new actors! Luckily, we kept track of the number of actors to add as we looped through the array in a local variable `actors_to_add`. For each row, we add this many columns of '0', and our matrix has been resized to accomodate all of the new, unique actors.
+
+```ruby
+@matrix.each_with_index do |array, index|
+  @matrix[index] = array + [0] * (actors_to_add)
+end
+```
 
 Our last task is to assign 1's at matrix locations where two actors have appeared in a movie together. This is accomplished as follows:
 
