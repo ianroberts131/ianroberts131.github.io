@@ -400,6 +400,7 @@ Now the finish line is in sight! We create an empty string, and then loop throug
 From here, all that's left to do is create an adjacency matrix, add the movies, and then find Kevin Bacon!
 
 ```ruby
+matrix = AdjMatrix.new("Kevin Bacon")
 matrix.add_film("Footloose", footloose)
 matrix.add_film("Interstellar", interstellar)
 matrix.add_film("Wolf of Wallstreet", wolf_of_wallstreet)
