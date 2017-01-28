@@ -344,6 +344,8 @@ children.each do |child|
     @actors_array[child].visited = true
   end
 end
+
+node_queue = children + node_queue
 ```
 
 If the node has not yet been visited, then when know that the current node in the recrusion is the child node's parent. We thus set the `@back_pointer` attribute of the node to the current node, and set the `@visiited` boolean value to `true` before ultimately adding all of the children to the queue.
