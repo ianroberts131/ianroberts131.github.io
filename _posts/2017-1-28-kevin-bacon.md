@@ -350,7 +350,7 @@ end
 node_queue = children + node_queue
 ```
 
-If the node has not yet been visited, then when know that the current node in the recrusion is the child node's parent. We thus set the `@back_pointer` attribute of the node to the current node, and set the `@visiited` boolean value to `true` before ultimately adding all of the children to the queue.
+If the node has not yet been visited, then when know that the current node in the loop is the child node's parent. We thus set the `@back_pointer` attribute of the node to the current node, and set the `@visiited` boolean value to `true` before ultimately adding all of the children to the queue.
 
 Now, once the target actor is located, the hard part is over. We have all of the information that we need, and just need to do some fun loops and string interpolation. Here's the code that will run once the target actor is found:
 
