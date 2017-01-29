@@ -12,7 +12,7 @@ Six Degrees of Kevin Bacon is a game where you have to link a given actor with K
 
 The path will be limited to how much data I was willing to take the time to insert, but the concepts are the same nonetheless.
 
-Before I move on, I'd like to just make a quick comment on overcoming obstacles. Whenever I read a blog post or explanation of a programming concept, it can be easy to assume the author breezed through everything. This can be demoralizing - until you come to the realization that the author probably banged their head against the wall for hours or days before finally figuring it out. This is certainly the case with me and the following solution. If you showed me the final code base that I ultimately wrote before I started, I would've curled up in a ball of self loathing and lamented that I could never write that. The bottom line is that real learning comes from looking at something that we cannot do, and having the grit and determination to plug away until we can. I've only been coding for about a year now, and one of the most important realizations I've come to is that you need to just start. Break things. Be curious. And in the end you will reach the finish line.
+Before I move on, I'd like to just make a quick comment on overcoming obstacles. Whenever I read a blog post or explanation of a programming concept, it can be easy to assume the author breezed through everything. This can be demoralizing - until you come to the realization that the author probably banged his/her head against the wall for hours or days before finally figuring it out. This was certainly the case with me and the following solution. If you showed me the final code base that I ultimately wrote before I started, I would've curled up in a ball of self loathing and lamented that I could never write that. The bottom line is that real learning comes from looking at something that we cannot do, and having the grit and determination to plug away until we can. I've only been coding for about a year now, and one of the most important realizations I've come to is that you need to just start. Break things. Be curious. And in the end you will reach the finish line.
 
 Alright, enough rah rah speech from me, let's find the Bacon.
 
@@ -135,7 +135,7 @@ We then add the array of actors into @film_hash:
 
 `@film_hash[name] = actors`
 
-The next step is a little tricky. We need to expand the matrix to accomodate any actor that has not yet been inserted into the matrix. Forget about assigning 1's and 0's for a minute - the task right now is to expand the matrix by the number of unique actors in the film we inserted, and assign each of them an appropriate index for lookup. This is accomplished with the following section of code:
+The next step is a little tricky. We need to expand the matrix to accommodate any actor that has not yet been inserted into the matrix. Forget about assigning 1's and 0's for a minute - the task right now is to expand the matrix by the number of unique actors in the film we inserted, and assign each of them an appropriate index for lookup. This is accomplished with the following section of code:
 
 ```ruby
 current_actors = @actors_array.length
@@ -178,7 +178,7 @@ def find_index(actor_name)
 end
 ```
 
-There's one problem - we haven't added columns for our new actors! Luckily, we kept track of the number of actors to add as we looped through the array in a local variable `actors_to_add`. For each row, we add this many columns of '0', and our matrix has been resized to accomodate all of the new, unique actors.
+There's one problem - we haven't added columns for our new actors! Luckily, we kept track of the number of actors to add as we looped through the array in a local variable `actors_to_add`. For each row, we add this many columns of '0', and our matrix has been resized to accommodate all of the new, unique actors.
 
 ```ruby
 @matrix.each_with_index do |array, index|
@@ -260,6 +260,8 @@ The 25 is just a length longer than the length of the longest name I inserted. T
 ```
 
 Don't know about you, but my OCD approves of this matrix. We can see that our 1 link between Footloose and Interstellar is John Lithgow - he is the key link to the Bacon.
+
+## The Search
 
 Now for the search. Just for fun, I opted to return a string that describes the path to Kevin Bacon. For instance, after entering the 3 movies shown above, the path to Kevin Bacon from Leonardo DiCaprio is Wolf of Wallstreet with Matthew McConaughey, who was in Interstellar with John Lithgow, who was in Footloose with Kevin Bacon. The output of the `#find_kevin_bacon` function is thus as follows:
 
