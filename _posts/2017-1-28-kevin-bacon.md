@@ -18,7 +18,7 @@ Alright, enough rah rah speech from me, let's find the Bacon.
 
 ## The graph
 
-Developing a graph that contains all necessary information is the most crucial part of this exercise. Once you have this, the recrusive breadth first search algorithm is fairly straight forward to implement. I opted to use an adjacency matrix, since this allowed for very clear associations between actors. One downside of an adjacency matrix is that they get very big very quickly (n^2 associations will need to be stored for n actors). For this purpose, it worked just fine though.
+Developing a graph that contains all necessary information is the most crucial part of this exercise. Once you have this, the recursive breadth first search algorithm is fairly straight forward to implement. I opted to use an adjacency matrix, since this allowed for very clear associations between actors. One downside of an adjacency matrix is that they get very big very quickly (n^2 associations will need to be stored for n actors). For this purpose, it worked just fine though.
 
 First, we need to create a Node class to represent the actors. Each node will need the following pieces of information:
 
