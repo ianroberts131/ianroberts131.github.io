@@ -8,7 +8,7 @@ title: Six Degrees of Kevin Bacon
 Six Degrees of Kevin Bacon is a game where you have to link a given actor with Kevin Bacon in 6 movies or less. If you think of each actor as a 'node', and the edges connecting nodes as a movie two actors were both in, then the game turns into a graph problem. In this post, I will walk through (using Ruby) how to:
 
 1. Create a tree of actor nodes, connected by movies the actors were both in, represented by an adjacency matrix
-2. Use recursive breadth first search to find the shortest path between the desired actor and Kevin Bacon.
+2. Use breadth first search to find the shortest path between the desired actor and Kevin Bacon.
 
 The path will be limited to how much data I was willing to take the time to insert, but the concepts are the same nonetheless.
 
@@ -18,7 +18,7 @@ Alright, enough rah rah speech from me, let's find the Bacon.
 
 ## The graph
 
-Developing a graph that contains all necessary information is the most crucial part of this exercise. Once you have this, the recursive breadth first search algorithm is fairly straight forward to implement. I opted to use an adjacency matrix, since this allowed for very clear associations between actors. One downside of an adjacency matrix is that they get very big very quickly (n^2 associations will need to be stored for n actors). For this purpose, it worked just fine though.
+Developing a graph that contains all necessary information is the most crucial part of this exercise. Once you have this, the breadth first search algorithm is fairly straight forward to implement. I opted to use an adjacency matrix, since this allowed for very clear associations between actors. One downside of an adjacency matrix is that they get very big very quickly (n^2 associations will need to be stored for n actors). For this purpose, it worked just fine though.
 
 First, we need to create a Node class to represent the actors. Each node will need the following pieces of information:
 
@@ -322,7 +322,7 @@ So what's going on here? First, we create a queue with the root node as the only
 
 `node_queue = [0]`
 
-We then start a loop that will recursively search for our target node until it is found. We start by grabbing the last element in the queue:
+We then start a loop that will search for our target node until it is found. We start by grabbing the last element in the queue:
 
 `curr_node = node_queue.pop`
 
